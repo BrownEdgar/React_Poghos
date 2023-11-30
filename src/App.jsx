@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css'
 
 function App() {
-  console.log("app render")
+
   const [posts, setPosts] = useState({
     original: [],
     filtered: []
@@ -43,6 +43,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Our Posts</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam dolore sit ea velit labore neque quibusdam, quam omnis voluptas, blanditiis, ipsa temporibus veniam maxime laborum saepe nobis ipsam ad?</p>
       <div className="buttons">
         {getAllTags().map(category => {
           return <button
