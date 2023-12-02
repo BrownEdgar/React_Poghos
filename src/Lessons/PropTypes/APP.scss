@@ -1,0 +1,50 @@
+
+.App {
+    max-width: 1200px;
+    margin: 50px auto;
+    color: #222;
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 40px;
+    }
+
+    &__desc{
+        line-height: 1.6;
+        color: grey;
+        font-size: 20px;
+    }
+
+    &__list {
+        margin: 30px auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+
+        &__item {
+            flex-grow: 1;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            button {
+                padding: 1em;
+                background-color: #04041b;
+                color: #fff;
+                width: 200px;
+                font-weight: 700;
+                cursor: pointer;
+                font-size: 20px;
+                border-radius: 8px;
+            }
+        }
+    }
+}
