@@ -1,5 +1,6 @@
-import Child from './Child'
 import { useState } from 'react'
+import Child from './Child'
+import Modal from '../Modal/Modal'
 
 import './App.scss'
 
@@ -11,6 +12,17 @@ export default function App() {
     { id: 2, title: 'Private Villa', image: ImageUrl, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, optio.' },
     { id: 3, title: 'Private Villa', image: ImageUrl, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, optio.' },
   ])
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const removeStoriesById = (id) => {
+    setStories((prevValue) => {
+      return prevValue.filter(elem => elem.id !== id)
+    })
+  }
   return (
     <div className='App'>
       <h1 className='App__Title'>Our Story</h1>
@@ -18,10 +30,11 @@ export default function App() {
       <div className='App__List'>
         {
           stories.map(elem => {
-            return <Child key={elem.id} elem={elem} />
+            return <Child key={elem.id} elem={elem} removeItem={removeStoriesById} toggleModal={toggleModal} />
           })
         }
       </div>
+      {isOpen ? <Modal /> : null}
     </div>
   )
 }
