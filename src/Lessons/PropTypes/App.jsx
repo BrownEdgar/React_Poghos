@@ -13,15 +13,17 @@ export default function App() {
     { id: 3, title: 'Private Villa', image: ImageUrl, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, optio.' },
   ])
   const [isOpen, setIsOpen] = useState(false)
+  const [currentId, setCurrentId] = useState(null)
 
   const toggleModal = () => {
     setIsOpen(!isOpen)
   }
 
-  const removeStoriesById = (id) => {
+  const removeStoriesById = () => {
     setStories((prevValue) => {
-      return prevValue.filter(elem => elem.id !== id)
+      return prevValue.filter(elem => elem.id !== currentId)
     })
+    setCurrentId(null)
   }
   return (
     <div className='App'>
@@ -30,11 +32,17 @@ export default function App() {
       <div className='App__List'>
         {
           stories.map(elem => {
-            return <Child key={elem.id} elem={elem} removeItem={removeStoriesById} toggleModal={toggleModal} />
+            return <Child
+              key={elem.id}
+              elem={elem}
+              seveId={setCurrentId}
+              toggleModal={toggleModal}
+
+            />
           })
         }
       </div>
-      {isOpen ? <Modal /> : null}
+      {isOpen ? <Modal toggleModal={toggleModal} removeItem={removeStoriesById} /> : null}
     </div>
   )
 }

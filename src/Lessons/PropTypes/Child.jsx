@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 
-export default function Child({ elem, toggleModal }) {
+export default function Child({ elem, toggleModal, seveId }) {
   return (
     <div className="App__List__item">
-      <span className='App__icon' onClick={toggleModal}>
+      <span className='App__icon' onClick={() => {
+        toggleModal();
+        seveId(elem.id)
+      }}>
         <i className='bx bx-x'></i>
       </span>
       <img src={elem.image} />
@@ -25,6 +28,7 @@ Child.propTypes = {
     image: PropTypes.string,
     description: PropTypes.string,
   }),
-  toggleModal: PropTypes.func.isRequired
+  toggleModal: PropTypes.func.isRequired,
+  seveId: PropTypes.func.isRequired,
 }
 
