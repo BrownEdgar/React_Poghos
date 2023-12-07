@@ -25,6 +25,7 @@
             flex-grow: 1;
             border: 1px solid #ccc;
             position: relative;
+            
 
         }
 
@@ -70,6 +71,7 @@
             background-color: #ff0404;
             color: #fff;
             transition: 0.3s;
+            border-radius: 100% 0% 0% 100% / 0% 30% 70% 100%;
         }
         i {
             font-weight: 700;

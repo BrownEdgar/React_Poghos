@@ -21,11 +21,17 @@ function App() {
         setiSOpen(!isOpen)
     }
 
-    const removeStoriesById = (id) => {
+    const [currentId, setCurentId] = useState(null)
+
+    const removeStoriesById = () => {
         setStories((prevValue) => {
-            return prevValue.filter(elem => elem.id !== id )
+            return prevValue.filter(elem => elem.id !== currentId )
         })
+        setCurentId(null)
     }
+
+    
+
   return (
     <div className="App">
         <h1 className="App__title">
@@ -38,13 +44,13 @@ function App() {
             {
                 stories.map(elem => {
                     return (
-                       <Child key={elem.id} elem={elem} removeItem={removeStoriesById} toggleModal={toggleModal}/>
+                       <Child key={elem.id} elem={elem} saveId={setCurentId} toggleModal={toggleModal}/>
                        
                     )
                 })
             }
         </div>
-        {isOpen ? <Modal /> : null}
+        {isOpen ? <Modal toggleModal={toggleModal} removeItem={removeStoriesById}/> : null}
     </div>
   )
 }
