@@ -47,5 +47,7 @@ Modal.propTypes = {
     PropTypes.element,
     PropTypes.array
   ]),
-  title: PropTypes.string
+  title: PropTypes.string,
+  isOpen:PropTypes.bool,
+  setIsOpen:PropTypes.func
 }

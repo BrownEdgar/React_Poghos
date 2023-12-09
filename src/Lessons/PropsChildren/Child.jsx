@@ -15,3 +15,10 @@ Child.defaultProps = {
   title: "Component default title",
   size: 'md'
 }
+
+Child.propTypes = {
+  size:PropTypes.string,
+  title:PropTypes.string,
+  children:PropTypes.any
+
+}

@@ -47,6 +47,8 @@ export default function App() {
           <Modal
             theme="dark"
             title='Delete this story?'
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
           >
             <button onClick={toggleModal}>Cancel</button>
             <button onClick={() => {
