@@ -19,3 +19,8 @@ ul {
 a {
   text-decoration: none;
 }
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
