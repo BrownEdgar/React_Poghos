@@ -5,7 +5,7 @@
 
     &__Movie{
         display: grid;
-    grid-template-columns: 40% repeat(3,15%)15%;
+    grid-template-columns: 3fr repeat(3,1fr)1.5fr;
     grid-template-rows: auto;
     padding: 10px;
     border-top: 1px solid #ccc;
