@@ -60,7 +60,22 @@ export default function App() {
           })
         }
       </div>
-      {isOpen ? <Modal toggleModal={toggleModal} removeItem={removeCitiesById} /> : null}
+      {/* {isOpen ? <Modal toggleModal={toggleModal} removeItem={removeCitiesById}/> : null} */}
+      {isOpen
+        ? (
+          <Modal
+            theme="dark"
+            title='Delete this city?'
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          >
+            <button onClick={toggleModal}>Cancel</button>
+            <button onClick={() => {
+              removeCitiesById();
+              toggleModal()
+            }}>Delete</button>
+          </Modal>
+        ) : null}
     </div>
   )
 }
