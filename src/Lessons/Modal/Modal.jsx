@@ -1,28 +1,46 @@
+import { useEffect } from 'react'
 import './Modal.scss'
 import PropTypes from 'prop-types'
 
- export default function Modal({toggleModal, removeItem}) {
+ export default function Modal({theme,children,title,isOpen,setIsOpen}) {
+    useEffect(() => {
+        const handleClick = (e) => {
+            const {className} = e.target;
+            if(className==="Modal") {
+                setIsOpen(false)
+            }
+        }
+        window.addEventListener("click",handleClick)
+        return () => {
+            window.removeEventListener('click',handleClick)
+        }
+    },[])
+
   return (
-    <div className="Modal">
-        <div className="Modal__content">
-            <h1 className='Modal__title'>
-                Delete This Story?
-            </h1>
-            <button onClick={toggleModal}>
-                Cancel
-            </button>
-            <button onClick={() => {
-                removeItem()
-                toggleModal()
-            }}>
-                Delete
-            </button>
-        </div>
-    </div>
+    <>
+        {
+            isOpen ? (
+                <div className="Modal">
+                    <div className={`Modal__content Modal__content-${theme}`} >
+                        <h2>{title}</h2>
+                        {children}
+                    </div>
+                </div>
+            ): null
+        }
+    </>
   )
 }
 
-Modal.PropTypes = {
-    toggleModal:PropTypes.func.isRequired,
-    removeItem:PropTypes.func.isRequired,
+Modal.defaultProps = {
+    theme: "light",
+}
+Modal.propTypes = {
+    theme: PropTypes.oneOf(['light','dark']),
+
+    children:PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.array,
+    ]),
+    title:PropTypes.string,
 }

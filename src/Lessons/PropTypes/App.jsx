@@ -50,7 +50,24 @@ function App() {
                 })
             }
         </div>
-        {isOpen ? <Modal toggleModal={toggleModal} removeItem={removeStoriesById}/> : null}
+        {isOpen ? (
+        <Modal 
+            theme = "dark"
+            title="Thank You"
+            >
+
+            <button onClick={toggleModal}>
+                Cancel
+            </button>
+            <button onClick={() => {
+                removeStoriesById()
+                toggleModal()
+            }}>
+                Delete
+            </button>
+
+            </Modal>
+            ) : null}
     </div>
   )
 }

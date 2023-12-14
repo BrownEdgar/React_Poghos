@@ -1,6 +1,10 @@
 import './App.scss'
+import Modal from '../Modal/modal'
+import { useState } from 'react'
 
 export default function App() {
+
+    const [isOpen, setIsOpen] = useState(true)
 
   return (
    <div className='App'>
@@ -14,6 +18,12 @@ export default function App() {
         <p className='App__desc App__desc-blue'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta doloribus, quos ex perferendis repellat officia amet quis illum molestias mollitia, sapiente dolorum! Culpa nulla laborum maiores aut cumque! Vero, ab.
         </p>
+        <Modal theme={'dark'} title="thank you" isOpen={isOpen} setIsOpen={setIsOpen}>
+            <h1>Thank You</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </Modal>
    </div>
   )
 }
