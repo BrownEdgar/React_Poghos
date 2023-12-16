@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react"
 import reducer, { initialState } from "./reducer"
-import { ADD_COUNT, ADD_POSTS, FILL_ARRAY,} from "./actionTypes"
-import { axiosOptions } from "../../../helpers/axios.d"
+import { ADD_COUNT, ADD_POSTS, FILL_ARRAY, UPDATE_POSTS,} from "./actionTypes"
+import  axiosOptions  from "../../../helpers/axios.d"
 import axios from 'axios'
 
 
@@ -16,16 +16,22 @@ export default function App() {
         dispatch({type: FILL_ARRAY})
     }
 
+    const updatedID = () => {
+      dispatch({type : UPDATE_POSTS})
+    }
+
     useEffect(() => {
       axios(axiosOptions('posts',10))
       .then(res => dispatch({type: ADD_POSTS, payload:{ posts: res.data } }))
     },[])
 
   return (
+
     <div>
         <h1>State : {JSON.stringify(state)}</h1>
         <button onClick={handleClick}>add count</button>
         <button onClick={handleClick2}>Fill array</button>
+        <button onClick={updatedID}>updated `s</button>
     </div>
     
   )

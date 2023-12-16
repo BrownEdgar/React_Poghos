@@ -1,4 +1,4 @@
-export const axiosOptions = (target,count) => {
+const axiosOptions = (target,count) => {
     return {
             baseURL: import.meta.env.VITE_DB_URL,
             url:target,
@@ -10,3 +10,4 @@ export const axiosOptions = (target,count) => {
     }
 }
 
+export default axiosOptions
