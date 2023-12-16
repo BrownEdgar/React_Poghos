@@ -1,9 +1,9 @@
-import { ADD_COUNT, ADD_POSTS, FILL_ARRAY } from './actionTypes';
+import { ADD_COUNT, ADD_POSTS, FILL_ARRAY, UPDATE_POSTS } from './actionTypes';
 
 export const initialState = {
   data: [],
   posts: [],
-  count: 0
+  count: 0,
 }
 
 const fillArray = (state) => {
@@ -16,6 +16,18 @@ const fillArray = (state) => {
   }
 }
 
+const postsUpdate = (state) => {
+  const result = state.posts.map((post, index) => {
+    post.id = state.arr[index];
+    return post;
+  })
+
+  return {
+    ...state,
+    posts: result
+  }
+}
+
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -25,8 +37,7 @@ function reducer(state = initialState, action) {
     };
     case FILL_ARRAY: return fillArray(state);
     case ADD_POSTS: return { ...state, posts: action.payload.posts }
-
-
+    case UPDATE_POSTS: return postsUpdate(state);
 
     default: return state
   }
