@@ -1,0 +1,48 @@
+.App {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 500px;
+  &__title {
+    font-size: 4em;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  &__text {
+    line-height: 1.5;
+    color: grey;
+    text-align: center;
+    width: 90%;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  &__form {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    padding: 12px 0px;
+    margin-top: 40px;
+
+    input {
+      font-size: 22px;
+      padding: 1em;
+      border-radius: 4px;
+      border: 1px solid #a1a1a1;
+      background-color: transparent;
+      flex-grow: 1;
+      &[type="submit"] {
+        background-color: #009933;
+        text-transform: uppercase;
+        color: #fff;
+        width: 160px;
+        flex-grow: 0;
+        font-weight: 400;
+        cursor: pointer;
+        border: 0;
+      }
+    }
+  }
+}
