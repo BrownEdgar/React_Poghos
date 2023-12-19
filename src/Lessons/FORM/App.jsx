@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { nanoid } from 'nanoid'
 import './App.scss'
 import Users from './Users/Users'
@@ -36,7 +36,7 @@ export default function App() {
         <input type="submit" value='Send' />
       </form>
       <hr />
-      <Users users={users} />
+      <Users users={users} setUsers = {setUsers} />
     </div>
   )
 }

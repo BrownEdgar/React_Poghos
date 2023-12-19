@@ -1,7 +1,13 @@
-import React from 'react'
+import {} from 'react'
 import './Users.scss'
+import PropTypes from 'prop-types'
 
-export default function Users({ users }) {
+export default function Users({ users,setUsers }) {
+  const handleDel = (id) => {
+    let result = users.filter(user => user.id !== id)
+    setUsers(result)
+  }
+
   return (
     <div className='Users'>
       <table>
@@ -21,7 +27,7 @@ export default function Users({ users }) {
                   <td>{index + 1}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
-                  <td>X</td>
+                  <td onClick={() => handleDel(user.id)}>X</td>
                 </tr>
               )
             })
@@ -30,4 +36,9 @@ export default function Users({ users }) {
       </table>
     </div>
   )
+}
+
+Users.propTypes = {
+  users: PropTypes.array,
+  setUsers:PropTypes.func
 }
