@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import App from './Lessons/hooks/useReducer/App'
+
 import App from './Lessons/Homework/Hooks/useReducer/App'
 
 import './index.css'
