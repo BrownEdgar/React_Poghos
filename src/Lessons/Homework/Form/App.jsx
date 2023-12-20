@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import {useState} from 'react'
 import './App.scss'
-import 
+
 
 export default function App() {
     const [users, setUsers] = useState([])
