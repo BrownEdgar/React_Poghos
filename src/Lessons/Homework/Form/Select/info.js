@@ -71,8 +71,8 @@ import tserkow from '../../../../assets/countryImgs/rus/tserkow.jpeg'
 import gazprom from '../../../../assets/countryImgs/rus/gazprom.png'
 import girl from '../../../../assets/countryImgs/rus/girl.jpeg'
 import kremlin from '../../../../assets/countryImgs/rus/kremlin.jpeg'
-import boyars from '../../../../assets/countryImgs/rus/boyars.jpeg'
 import borsh from '../../../../assets/countryImgs/rus/borsh.jpeg'
+import cheburashka from '../../../../assets/countryImgs/rus/cheburashka.jpeg'
 
 
 import braFlag from '../../../../assets/countryImgs/bra/braFlag.jpeg'
@@ -137,7 +137,7 @@ export const arr = [
     name:'Russia',
     capital:'Moscow',
     countryImg:rusFlag,
-    images:[balet,bomba,putin,pushkin,kremlin,tserkow,girl,boyars,socialism,matryoshka,mendeleev,peterI,samovar,ruletka,gazprom,borsh],
+    images:[balet,bomba,putin,pushkin,kremlin,tserkow,girl,cheburashka,socialism,matryoshka,mendeleev,peterI,samovar,ruletka,gazprom,borsh],
     description:'Russia (Russian: Россия, romanized: Rossiya,), or the Russian Federation, is a country spanning Eastern Europe and Northern Asia. It is the largest country in the world by area, extends across eleven time zones, and shares land boundaries with fourteen countries. It is the worlds ninth-most populous country and Europes most populous country. The countrys capital and largest city is Moscow. Saint Petersburg is Russias second-largest city and "cultural capital". Other major urban areas in the country include Novosibirsk, Yekaterinburg, Nizhny Novgorod, Chelyabinsk, Krasnoyarsk, and Kazan.The East Slavs emerged as a recognised group in Europe between the 3rd and 8th centuries CE. The first East Slavic state, Kievan Rus, arose in the 9th century, and in 988, it adopted Orthodox Christianity from the Byzantine Empire. Rus ultimately disintegrated, with the Grand Duchy of Moscow growing to become the Tsardom of Russia. By the early 18th century, Russia had vastly expanded through conquest, annexation, and the efforts of Russian explorers, developing into the Russian Empire, which remains the third-largest empire in history. However, with the Russian Revolution in 1917, Russias monarchic rule was abolished and eventually replaced by the Russian SFSR—the worlds first constitutionally socialist state. ',
     anthem:''
 
