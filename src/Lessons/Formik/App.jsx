@@ -5,17 +5,19 @@ import { object as YupObject, string } from 'yup'
 
 import './App.scss'
 import { nanoid } from 'nanoid'
+import List from './List/List'
 
 const initialValues = {
   username: '',
   email: '',
   lamguages: ''
 }
+const languagesList = ['html', 'css', 'js', 'react', 'next']
 
 const validationSchema = YupObject({
   username: string().max(18).min(3).matches(/^[A-Z]/, 'Must by start with uppercase').required(),
   email: string().email().required(),
-  lamguages: string().oneOf(['html', 'css', 'js', 'react'])
+  languages: string().oneOf(languagesList)
 
 })
 
@@ -57,7 +59,7 @@ export default function App() {
                 </ErrorMessage>
                 <Field type="text" name='username' />
                 <Field type="email" name='email' />
-                <Field as='select' name="lamguages">
+                <Field as='select' name="languages">
                   <option value="html">html</option>
                   <option value="css">css</option>
                   <option value="js">js</option>
@@ -71,6 +73,8 @@ export default function App() {
           }
         }
       </Formik>
+      <hr />
+      <List languagesList={languagesList} />
     </div>
   )
 }
