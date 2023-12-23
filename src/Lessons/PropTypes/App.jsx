@@ -42,6 +42,7 @@ export default function App() {
           })
         }
       </div>
+<<<<<<< HEAD
       {isOpen ? (
       <Modal 
        theme="dark"
@@ -56,6 +57,21 @@ export default function App() {
        </Modal>
        )
        : null}
+=======
+      {isOpen
+        ? (
+          <Modal
+            theme="dark"
+            title='Delete this story?'
+          >
+            <button onClick={toggleModal}>Cancel</button>
+            <button onClick={() => {
+              removeStoriesById();
+              toggleModal()
+            }}>Delete</button>
+          </Modal>
+        ) : null}
+>>>>>>> 340b5e19c2e3d2794cb78d258557759ea0eb766a
     </div>
   )
 }

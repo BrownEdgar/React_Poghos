@@ -10,6 +10,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   max-width: 1440px;
   margin: 0 auto;
+  background-color: #f0f0f0;
 }
 
 ul {
@@ -20,7 +21,11 @@ a {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 .flex{
+=======
+.flex {
+>>>>>>> 340b5e19c2e3d2794cb78d258557759ea0eb766a
   display: flex;
   flex-wrap: wrap;
 }

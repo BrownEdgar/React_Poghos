@@ -13,13 +13,17 @@
     min-height: 200px;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 34px 35px;
+<<<<<<< HEAD
     background: #fff;
     text-align: center;
+=======
+>>>>>>> 340b5e19c2e3d2794cb78d258557759ea0eb766a
     display: grid;
     gap: 12px;
     position: relative;
     z-index: 10;
     border-radius: 10px;
+<<<<<<< HEAD
     &-light{
       background-color: #fff;
     }
@@ -31,11 +35,31 @@
   }
   &__title {
     grid-column: 1/3;
+=======
+    &-light {
+      background: #fff;
+    }
+    &-dark {
+      background-color: #111;
+      color: royalblue;
+      box-shadow: 0 0 18px 4px rgba(153, 205, 50, 0.8);
+    }
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+>>>>>>> 340b5e19c2e3d2794cb78d258557759ea0eb766a
   }
   button {
     border: 2px solid #666;
     border-radius: 10px;
     font-size: 24px;
     cursor: pointer;
+<<<<<<< HEAD
+=======
+    margin: 20px;
+    padding: 10px;
+>>>>>>> 340b5e19c2e3d2794cb78d258557759ea0eb766a
   }
 }
