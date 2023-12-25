@@ -6,9 +6,9 @@ import '../Formik/App.scss'
 
 const schema = yup
   .object({
-    firstName: yup.string().min(3,'Too short').max(18,'Too long').required('This field is invalid'),
+    firstName: yup.string().required('This field is invalid').min(3,'Too short').max(18,'Too long'),
     email:yup.string().email().required('This field is invalid'),
-    password:yup.string().min(6,'Must be at least 6 chars').required('This field is invalid'),
+    password:yup.string().required('This field is invalid').min(6,'Must be at least 6 characters'),
     toggle:yup.boolean()
   })
   .required()
@@ -21,8 +21,12 @@ export default function App() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
+    mode:"onChange"
   })
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data,e) => {
+    console.log(data)
+    e.target.reset()
+  }
 
 
   return (
