@@ -7,7 +7,7 @@ import '../Formik/App.scss'
 const schema = yup
   .object({
     firstName: yup.string().required('This field is invalid').min(3,'Too short').max(18,'Too long'),
-    email:yup.string().email().required('This field is invalid'),
+    email:yup.string().email('Email is not valid').required('This field is invalid'),
     password:yup.string().required('This field is invalid').min(6,'Must be at least 6 characters'),
     toggle:yup.boolean()
   })

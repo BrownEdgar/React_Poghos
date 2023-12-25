@@ -1,7 +1,7 @@
 
 import ReactDOM from 'react-dom/client'
 
-import App from './Lessons/Homework/React Hook Form/App'
+import App from './Lessons/Homework/Formik/Homework2/App'
 
 import './index.css'
 
