@@ -1,7 +1,7 @@
 
 import ReactDOM from 'react-dom/client'
 
-import App from './Lessons/Homework/Formik/Homework2/App'
+import App from './Lessons/hooks/useMemo/App'
 
 import './index.css'
 
