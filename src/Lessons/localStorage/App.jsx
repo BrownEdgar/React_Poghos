@@ -8,6 +8,8 @@ export default function App() {
     return JSON.parse(localStorage.getItem('messages')) || []
   });
   const [repeatedIndex, setRepeatedIndex] = useState(-1)
+  const [selected, setSelected] = useState(null)
+  const [mounted, setMounted] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +22,11 @@ export default function App() {
       }, 1800)
     } else {
       setMessages([...messages, message.value]);
+        setMounted(messages.length)
+        console.log(messages.length);
+      setTimeout(() => {
+        setMounted(null)
+      }, 1200)
     }
     e.target.reset()
   }
@@ -33,6 +40,14 @@ export default function App() {
     setMessages([])
   }
 
+  const handleDel = (index) => {
+    setSelected(index)
+    setTimeout(() => {
+      let result = messages.filter(message => messages.indexOf(message) !== index)
+      setMessages(result)
+      setSelected(null)
+    },1200)
+  }
   return (
     <div className='App'>
       <form onSubmit={handleSubmit}>
@@ -46,9 +61,10 @@ export default function App() {
           messages.map((elem, index) => {
             return <li
               key={index}
-              className={classNames({ animated: index === repeatedIndex })}
+              className={classNames({ animated: index === repeatedIndex,removing:selected === index,mounting:mounted === index})}
             >
               {elem}
+              <span onClick={() => handleDel(index)}>X</span>
             </li>
           })
         }

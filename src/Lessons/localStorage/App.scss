@@ -16,6 +16,8 @@
     width: 600px;
     margin: 0 auto;
     li {
+      display: flex;
+      justify-content: space-between;
       font-size: 20px;
       line-height: 1.6;
       border-left: 10px solid #10ce44;
@@ -25,8 +27,19 @@
       padding: 10px;
       font-style: italic;
       background-color: #fff;
+      span{
+        color:#ff0404;
+        cursor: pointer;
+        font-weight: 600;
+      }
       &.animated {
         animation: bounce-out-down 600ms ease 3;
+      }
+      &.removing{
+        animation: delete 1200ms ease 1;
+      }
+      &.mounting{
+        animation: mount 1200ms ease 1;
       }
     }
   }
@@ -50,4 +63,24 @@
     opacity: 0.4;
     transform: scale(1);
   }
+}
+
+@keyframes delete {
+  0%{
+transform: translateX(-200px);
+  }
+  100%{
+    transform: translateX(1200px);
+  }
+  
+}
+
+@keyframes mount {
+  0%{
+transform: rotate(0deg)
+  }
+  100%{
+    transform: rotate(180deg)
+  }
+  
 }
