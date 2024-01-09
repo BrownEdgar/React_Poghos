@@ -1,4 +1,5 @@
 .Child {
+<<<<<<< HEAD
     margin: 50px 0;
     padding: 1.3em;
     border-radius: 12px;
@@ -36,3 +37,39 @@
         font-weight: 600;
     }
 }
+=======
+  margin: 50px 0;
+  padding: 1.3em;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  transition-delay: 0.1s;
+  &:hover {
+    transform: scale(1.04, 1.04);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px inset;
+    transition: 0.3s;
+    border-color: brown;
+  }
+  &__md {
+    width: max(30%, 300px);
+    display: inline-block;
+    margin: 30px 10px;
+  }
+  &__lg {
+    width: max(50%, 320px);
+  }
+  &__xl {
+    width: max(100%, 320px);
+  }
+  & img {
+    width: 340px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 32px;
+  }
+}
+>>>>>>> 2295e469cc115c9befa8bd29a66e7c21753c84f2

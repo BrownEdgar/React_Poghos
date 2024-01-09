@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App{
     width: 700px;
     padding: 2em;
@@ -47,3 +48,53 @@
     }
 
 }
+=======
+.App {
+  width: 700px;
+  padding: 2em;
+  background-color: #dedede;
+  margin: 30px auto;
+  border-radius: 12px;
+
+  &__title {
+    color: orangered;
+    font-size: 40px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    transition: 0.4s;
+    font-weight: 700;
+    &:hover {
+      letter-spacing: 0px;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+    span {
+      background-color: teal;
+      padding: 4px;
+      border-radius: 20px;
+      font-size: 20px;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1.4;
+    text-align: justify;
+    text-indent: 20px;
+    padding: 1em;
+
+    &-black {
+      background-color: #111;
+      color: whitesmoke;
+      border-radius: 6px;
+    }
+
+    &-blue {
+      background-color: royalblue;
+      color: whitesmoke;
+      border-radius: 20px;
+    }
+  }
+}
+>>>>>>> 2295e469cc115c9befa8bd29a66e7c21753c84f2
