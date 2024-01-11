@@ -1,26 +1,30 @@
-import { useEffect, useState } from 'react'
-import Child from '../PropsChildren/Child'
-import axios from 'axios'
+import { useEffect, useState } from 'react';
 
-const DB_URL = import.meta.env.VITE_DB_URL
+import './App.scss'
+import Component from './Component';
+import axios from 'axios';
 
 export default function App() {
-  const [posts, setPosts] = useState([])
+  const [count, setCount] = useState(1)
 
   useEffect(() => {
-    axios.get(`${DB_URL}/posts`)
-      .then(res => setPosts(res.data))
-  }, [])
-  console.log(posts)
+    if (count > 0 && count < 101) {
+      axios(`https://jsonplaceholder.typicode.com/posts/${count}`)
+        .then(res => console.log(res.data))
+    } else {
+      console.log('invalid count')
+    }
+  }, [count])
+
+
+  const handleClick = () => setCount(count - 1)
 
   return (
-    <div className='flex'>
+    <div className='App'>
+      <h1>count: {count}</h1>
+      <button onClick={handleClick}>add count</button>
       {
-        posts.map(elem => {
-          return <Child key={elem.id} title={elem.title}>
-            <p>{elem.body}</p>
-          </Child>
-        })
+        count < 10 ? <Component /> : null
       }
     </div>
   )
