@@ -48,6 +48,7 @@ export default function App() {
       setSelected(null)
     },1200)
   }
+      //inchu e jnjvum localStorage-ic
   return (
     <div className='App'>
       <form onSubmit={handleSubmit}>
