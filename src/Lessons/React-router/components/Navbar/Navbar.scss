@@ -18,6 +18,13 @@ header {
         font-size: 18px;
         color: #fff;
         display: inline-block;
+        a {
+          padding-bottom: 4px;
+          &.active {
+            border-bottom: 2px solid orangered;
+            font-weight: 300;
+          }
+        }
       }
     }
   }
