@@ -8,12 +8,18 @@ import Posts from './pages/Posts'
 import Errorpage from './pages/Errorpage'
 import ROUTES from './routes'
 import Post from './pages/Post'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import Users from './pages/Users'
 
 export default function App() {
   return (
     <div>
       <NavBar />
       <Routes>
+      <Route path={ROUTES.SIGNIN} element={<SignIn />} />
+      <Route path={ROUTES.SIGNUP} element={<SignUp />} />
+      <Route path={ROUTES.USERS} element={<Users/>} />
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.BLOG} element={<Blog name="Secret word" />} />
         <Route path={ROUTES.POSTS} element={<Posts />} />

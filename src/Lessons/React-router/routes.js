@@ -5,6 +5,9 @@ const ROUTES = {
   POST: '/posts/:id',
   CONTACT: '/contact',
   ERRORPAGE: '*',
+  SIGNIN:'/signin',
+  SIGNUP:'/signup',
+  USERS:'/users',
 }
 
 export default ROUTES;

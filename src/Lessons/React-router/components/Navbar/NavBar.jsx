@@ -10,6 +10,15 @@ export default function NavBar() {
       </div>
       <nav>
         <ul>
+        <li>
+            <NavLink to={ROUTES.SIGNIN}>Sign In</NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.SIGNUP}>Sign Up</NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.USERS}>Users</NavLink>
+          </li>
           <li>
             <NavLink to={ROUTES.HOME}>Home</NavLink>
           </li>
