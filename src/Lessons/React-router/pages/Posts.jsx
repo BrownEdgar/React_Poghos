@@ -1,33 +1,27 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
 import useFetchData from '../../hooks/CustomHooks/useFetchData'
 
 export default function Posts() {
-  const [data, loading, error] = useFetchData({
-    url: 'http://localhost:3000/posts'
-  })
 
+ const [data,loading,error] = useFetchData({
+  url:"http://localhost:3000/posts"
+ });
+ useEffect(() => {
+  console.log("Fetched data:", data);
+  console.log("Fetch error:", error);
+}, [data,loading,error])
 
-  console.log(data)
-
-  if (loading) {
-    return <h1>Loading....</h1>
-  }
-
+if(loading){
+  return <h1>Loading....</h1>
+}
   return (
-    <div className='PostList'>
-      {
-        data?.map(post => {
-          return (
-            <Link
-              key={post.id}
-              className="PostList__item"
-              to={`/posts/${post.id}`}
-            >
-              {post.title}
-            </Link>
-          )
-        })
-      }
+    <div>
+        <h1>
+            Posts Page 
+        </h1>
+        <pre>
+          {JSON.stringify(data,null,1)}
+        </pre>
     </div>
   )
 }

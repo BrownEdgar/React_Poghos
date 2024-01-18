@@ -1,53 +1,57 @@
 .App {
-  padding: 1em;
-  form {
-    margin: 20px auto;
-    width: 600px;
+    padding: 1em;
+    form {
+        margin: 20px auto;
+        width: 600px;
+        input {
+            padding: 14px;
+            width: 100px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+    }
+    ul {
+        width: 600px;
+        margin: 0 auto;
+        li{
+            font-size: 20px;
+            line-height: 1.6;
+            border-bottom: 1px solid grey;
+            margin: 20px auto;
+            padding: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-style: italic;
+            background-color: #fff;
+            transition: 0.4s;
 
-    input {
-      padding: 14px;
-      font-size: 20px;
-      width: 100%;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
+            &:hover {
+                border-left: 10px solid #10ce44;
+
+
+            }
+
+            &.animated {
+                animation: bounce-out-down 600ms ease 3;
+            }
+        }
     }
-  }
-  ul {
-    width: 600px;
-    margin: 0 auto;
-    li {
-      font-size: 20px;
-      line-height: 1.6;
-      border-left: 10px solid #10ce44;
-      margin: 20px auto;
-      font-weight: 500;
-      letter-spacing: 1px;
-      padding: 10px;
-      font-style: italic;
-      background-color: #fff;
-      &.animated {
-        animation: bounce-out-down 600ms ease 3;
-      }
-    }
-  }
 }
 
-@keyframes bounce-out-down {
-  0% {
-    opacity: 0;
-    transform: scale(1);
-  }
-
-  20% {
-    opacity: 1;
-    transform: scale(1.04);
-    border-left-color: rgb(225, 255, 0);
-    background-color: #ff0404;
-    color: #fff;
-  }
-
-  100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
+@keyframes bounce-out-down{
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1.04);
+        border-left-color:10px solid rgb(225,225,0);
+        background-color: #ff0404;
+        color: #fff;
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
 }
