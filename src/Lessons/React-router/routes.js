@@ -1,11 +1,10 @@
 const ROUTES = {
-    HOME: "/home",
-    BLOG: "/blog",
-    POSTS: "/posts",
-    CONTACT: "/contact",
-    ERRORPAGE: "*",
-    USERS: "/users",
-
+  HOME: '/',
+  BLOG: '/blog',
+  POSTS: '/posts',
+  POST: '/posts/:id',
+  CONTACT: '/contact',
+  ERRORPAGE: '*',
 }
 
-export default ROUTES
+export default ROUTES;
