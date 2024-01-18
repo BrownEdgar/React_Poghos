@@ -1,7 +1,10 @@
-import React from 'react'
-
-export default function Users() {
+export default function Users({ users }) {
+  console.log(users)
   return (
-    <h1>Users</h1>
+    <h1 className='pre'>
+      {
+        JSON.stringify(users, ['username', "email"], 1)
+      }
+    </h1>
   )
 }

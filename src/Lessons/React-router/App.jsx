@@ -11,20 +11,31 @@ import Post from './pages/Post'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Users from './pages/Users'
+import { useState } from 'react'
+import PrivateRoutes from './components/Navbar/PrivateRoutes/PrivateRoutes'
 
 export default function App() {
+  const [users, setUsers] = useState([{
+    id: 100500,
+    email: 'admin@gmail.com',
+    password: 'admin',
+    username: 'admin',
+  }])
   return (
     <div>
       <NavBar />
       <Routes>
-      <Route path={ROUTES.SIGNIN} element={<SignIn />} />
-      <Route path={ROUTES.SIGNUP} element={<SignUp />} />
-      <Route path={ROUTES.USERS} element={<Users/>} />
+        <Route path={ROUTES.SIGNIN} element={<SignIn users={users} />} />
+        <Route path={ROUTES.SIGNUP} element={<SignUp users={users} setUsers={setUsers} />} />
         <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.BLOG} element={<Blog name="Secret word" />} />
-        <Route path={ROUTES.POSTS} element={<Posts />} />
-        <Route path={ROUTES.POST} element={<Post />} />
-        <Route path={ROUTES.CONTACT} element={<Contact />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path={ROUTES.USERS} element={<Users users={users} />} />
+          <Route path={ROUTES.BLOG} element={<Blog />} />
+          <Route path={ROUTES.POSTS} element={<Posts />} />
+          <Route path={ROUTES.POST} element={<Post />} />
+          <Route path={ROUTES.CONTACT} element={<Contact />} />
+        </Route>
+
         <Route path={ROUTES.ERRORPAGE} element={<Errorpage />} />
       </Routes>
     </div>

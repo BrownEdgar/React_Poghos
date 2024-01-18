@@ -1,8 +1,16 @@
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.scss'
 import ROUTES from '../../routes'
+import { useState } from 'react'
 
 export default function NavBar() {
+  const [login, setLogin] = useState(window.localStorage.getItem('login'))
+
+  const logout = () => {
+    localStorage.setItem('login', false);
+    setLogin(false)
+  }
+
   return (
     <header>
       <div className="logo">
@@ -10,12 +18,16 @@ export default function NavBar() {
       </div>
       <nav>
         <ul>
-        <li>
-            <NavLink to={ROUTES.SIGNIN}>Sign In</NavLink>
-          </li>
-          <li>
-            <NavLink to={ROUTES.SIGNUP}>Sign Up</NavLink>
-          </li>
+          {login ? <button onClick={logout}>LogOut</button> : (
+            <>
+              <li>
+                <NavLink to={ROUTES.SIGNIN}>Sign In</NavLink>
+              </li>
+              <li>
+                <NavLink to={ROUTES.SIGNUP}>Sign Up</NavLink>
+              </li>
+            </>
+          )}
           <li>
             <NavLink to={ROUTES.USERS}>Users</NavLink>
           </li>

@@ -1,99 +1,102 @@
-.App{
-    margin: 100px auto;
-    width: 420px;
-    min-height: 500px;
-    background-color: whitesmoke;
-    padding: 10px;
-    & > h1{
-       padding: 5px ;
-       padding-top: 30px;
-       text-align: center;
-        font-size: 20px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-    & >p:first-of-type{
-        text-align: center;
-        margin: 5px;
-        font-size: 13px;
-        font-weight: 600;
-        color: #8a8888;
-
-    }
-& > form{
+.App {
+  margin: 100px auto;
+  width: 420px;
+  min-height: 500px;
+  background-color: whitesmoke;
+  padding: 10px;
+  & > h1 {
+    padding: 5px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  & > p:first-of-type {
+    text-align: center;
+    margin: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8a8888;
+  }
+  & > form {
     display: flex;
     flex-direction: column;
-    & > label{
-        display: flex;
-        flex-direction: column;
-        font-size: 13px;
-        padding: 5px;
-        margin: 5px 10px;
-        position: relative;
-    
-        
-        input{
-            padding: 10px;
-            margin: 10px 0px;
-            background: transparent;
-            border-radius: 5px;
-            border: 1px solid #dedede;
+    & > label {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      padding: 5px;
+      margin: 5px 10px;
+      position: relative;
 
-        }
-        i{
-            font-size: 15px;
-            color: #ff3434;
-            position: absolute;
-            bottom: 26.5px;
-            right: 20px;
-            display: none;
-
-        }
-    }
-    label.checked{
-        flex-direction: row;
-        padding: 5px;
-        margin: 5px 10px;
-        line-height: 2.5;
-        input{
-            margin-right: 5px;
-        }
-    }
-    &>[type='submit']{
+      input {
         padding: 10px;
-        margin: 15px;
-        color: #fff;
-        background-color: #ff3434;
-        border: 0;
+        margin: 10px 0px;
+        background: transparent;
         border-radius: 5px;
-        cursor: pointer;
-    }
-     p.error{
-        margin: 5px 8px;
-        padding: 5px;
-        padding-top: 0;
+        border: 1px solid #dedede;
+      }
+      i {
+        font-size: 15px;
         color: #ff3434;
-        font-size: 10px;
-        font-weight: 600;
+        position: absolute;
+        bottom: 26.5px;
+        right: 20px;
+        display: none;
+      }
     }
-    label.invalid{
-        input{
-            border:1px solid #ff3434;
-        }
-        i{
-            display: block;
-        }
+    label.checked {
+      flex-direction: row;
+      padding: 5px;
+      margin: 5px 10px;
+      line-height: 2.5;
+      input {
+        margin-right: 5px;
+      }
     }
-}
-&>p:last-of-type{
+    & > [type="submit"] {
+      padding: 10px;
+      margin: 15px;
+      color: #fff;
+      background-color: #ff3434;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      &:disabled {
+        background-color: grey;
+      }
+    }
+    p.error {
+      margin: 5px 8px;
+      padding: 5px;
+      padding-top: 0;
+      color: #ff3434;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    label.invalid {
+      input {
+        border: 1px solid #ff3434;
+      }
+      i {
+        display: block;
+      }
+    }
+  }
+  & > p:last-of-type {
     text-align: center;
     margin: 5px;
     margin-bottom: 30px;
     font-size: 13px;
     font-weight: 600;
     color: #8a8888;
-    span{
-        color: #ff3434;
+    span {
+      color: #ff3434;
     }
+  }
 }
+
+.pre {
+  white-space: pre-wrap;
 }
