@@ -1,0 +1,33 @@
+.Pagination {
+  width: 96%;
+  margin: 10px auto;
+  padding: 10px 0;
+}
+
+.Pagination__List {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.Pagination__List li {
+  width: 40px;
+  height: 40px;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #111;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.Pagination__List li:hover {
+  transform: translateY(-3px);
+  background-color: #07a217;
+  color: #fff;
+}

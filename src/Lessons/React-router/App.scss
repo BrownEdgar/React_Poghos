@@ -2,13 +2,14 @@
   width: 96%;
   margin: 10px auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   &__item {
     padding: 1em;
     background-color: brown;
     color: #fff;
-    flex-basis: 47%;
+    flex-basis: 80%;
     border-radius: 10px;
     font-size: 20px;
     transition: 0.2s;
