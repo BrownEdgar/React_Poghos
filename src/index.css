@@ -30,3 +30,8 @@ a {
   display: flex;
   flex-wrap: wrap;
 }
+
+.loader {
+  width: 650px;
+  margin: 0 auto;
+}

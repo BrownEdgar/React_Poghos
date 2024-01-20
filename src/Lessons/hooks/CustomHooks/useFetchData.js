@@ -2,22 +2,29 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-export default function useFetchData({ url }) {
+export default function useFetchData({ url, start, limit }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false)
 
+
+
   useEffect(() => {
-    console.log(url)
+    const axiosConfig = {
+      params: {
+        _limit: limit,
+        _start: start
+      }
+    }
     setLoading(true)
-    axios(url)
+    axios(url, axiosConfig)
       .then(res => {
         console.log(res.data)
         setData(res.data)
       })
       .catch(err => setError(err))
       .finally(() => setLoading(false))
-  }, [url])
+  }, [url, limit, start])
 
 
   return [data, loading, error];

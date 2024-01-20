@@ -1,33 +1,48 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import useFetchData from '../../hooks/CustomHooks/useFetchData'
+import Pagination from '../components/Pagination/Pagination';
+import PostsLoader from '../../Loaders/PostLoader'
 
 export default function Posts() {
+  const [page, setPage] = useState(1);
+  const [perPage] = useState(7);
+
   const [data, loading, error] = useFetchData({
-    url: 'http://localhost:3000/posts'
+    url: 'https://jsonplaceholder.typicode.com/posts',
+    limit: perPage,
+    start: (page * perPage) - perPage
   })
 
 
-  console.log(data)
+
 
   if (loading) {
-    return <h1>Loading....</h1>
+    return <div className="loader">
+      <PostsLoader />
+    </div>
   }
 
+  const changePage = (n) => setPage(() => n)
+
   return (
-    <div className='PostList'>
-      {
-        data?.map(post => {
-          return (
-            <Link
-              key={post.id}
-              className="PostList__item"
-              to={`/posts/${post.id}`}
-            >
-              {post.title}
-            </Link>
-          )
-        })
-      }
+    <div className='Posts'>
+      <div className='PostList'>
+        {
+          data?.map(post => {
+            return (
+              <Link
+                key={post.id}
+                className="PostList__item"
+                to={`/posts/${post.id}`}
+              >
+                {post.title}
+              </Link>
+            )
+          })
+        }
+      </div>
+      <Pagination total={100} perPage={perPage} changePage={changePage} />
     </div>
   )
 }
