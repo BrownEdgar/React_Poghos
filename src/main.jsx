@@ -1,7 +1,7 @@
 
 import ReactDOM from 'react-dom/client'
 
-import App from './Lessons/React-router/App'
+import App from './Lessons/Homework/ReactRouter/App'
 
 import './index.css'
 import { BrowserRouter as Router } from 'react-router-dom'
