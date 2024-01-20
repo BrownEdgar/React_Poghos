@@ -21,6 +21,36 @@
   }
 }
 
+.UserList {
+  width: 96%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  &__item {
+    padding: 1em;
+    background-color: orange;
+    color: #fff;
+    flex-basis: 40%;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: 0.2s;
+    span{
+    display: flex;
+    justify-content: center;
+    &:hover{
+      border-bottom: 2px solid red;
+    }
+    }
+    &:hover {
+      background-color: #111;
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+  }
+}
+
 .Post {
   width: 400px;
   padding: 2em;

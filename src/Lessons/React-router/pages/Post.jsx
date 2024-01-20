@@ -9,7 +9,9 @@ export default function Post() {
   const params = useParams()
   const [postId, setPostId] = useState(params.id)
   const [post, loading, error] = useFetchData({
-    url: `http://localhost:3000/posts/${postId}`
+    // url: `http://localhost:3000/posts/${postId}`
+    url: `https://jsonplaceholder.typicode.com/posts/${postId}`
+
   })
 
   const navigate = useNavigate()
@@ -33,7 +35,7 @@ export default function Post() {
   }
 
   const deletePost = () => {
-    axios.delete(`http://localhost:3000/posts/${postId}`)
+    axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then(() => {
         navigate(ROUTES.POSTS)
       })
