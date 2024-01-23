@@ -26,36 +26,37 @@ export default function Users() {
   })
 
 
-
-
-  if (loading) {
-    return <div className="loader">
-      <UsersLoader />
-    </div>
-  }
-
   const changePage = (n) => setPage(() => n)
 
   return (
     <div className='Users'>
       <div className='UserList'>
-        {
-          data?.map(user => {
-            return (
-              <Link
-                key={user.id}
-                className="UserList__item"
-                to={`/users/${user.id}`}
-              >
-                <span>Name : {user.name}</span>
-                <span>Username : {user.username}</span>
-               <span>Email : {user.email}</span> 
-               <span>City : {user.address.city}</span> 
-                <span>Company : {user.company.name}</span>
-              </Link>
-            )
-          })
-        }
+
+        {loading ? (
+          <div className="loader">
+            <UsersLoader />
+          </div>
+        ) : (
+          <>
+            {
+              data?.map(user => {
+                return (
+                  <Link
+                    key={user.id}
+                    className="UserList__item"
+                    to={`/users/${user.id}`}
+                  >
+                    <span>Name : {user.name}</span>
+                    <span>Username : {user.username}</span>
+                    <span>Email : {user.email}</span>
+                    <span>City : {user.address.city}</span>
+                    <span>Company : {user.company.name}</span>
+                  </Link>
+                )
+              })
+            }
+          </>
+        )}
       </div>
       <Pagination total={10} perPage={perPage} changePage={changePage} />
     </div>

@@ -1,18 +1,11 @@
-import { Route, Routes } from 'react-router-dom'
-import './App.scss'
-import NavBar from './components/Navbar/NavBar'
-import Blog from './pages/Blog'
-import Contact from './pages/Contact'
-import Home from './pages/Home'
-import Posts from './pages/Posts'
-import Errorpage from './pages/Errorpage'
-import ROUTES from './routes'
-import Post from './pages/Post'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
-import Users from './pages/Users'
 import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import NavBar from './components/Navbar/NavBar'
 import PrivateRoutes from './components/Navbar/PrivateRoutes/PrivateRoutes'
+import { Blog, Contact, Errorpage, Home, Post, Posts, SignIn, SignUp, Users } from './pages';
+import ROUTES from './routes'
+
+import './App.scss'
 
 export default function App() {
   const [users, setUsers] = useState([{
