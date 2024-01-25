@@ -14,16 +14,14 @@ export default function Posts() {
     start: (page * perPage) - perPage
   })
 
-
-
-
-  if (loading) {
+  const changePage = (n) => setPage(() => n)
+  if (!loading) {
     return <div className="loader">
       <PostsLoader />
+      <Pagination total={100} perPage={perPage} changePage={changePage} />
     </div>
   }
 
-  const changePage = (n) => setPage(() => n)
 
   return (
     <div className='Posts'>
