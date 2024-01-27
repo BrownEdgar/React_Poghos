@@ -3,9 +3,7 @@ body {
   color: #fff;
 }
 .App {
-  display: grid;
-  grid-template-columns: minmax(300px, 400px) 1fr;
-
+  display: flex;
   gap: 12px;
   width: 100%;
   position: relative;
@@ -15,13 +13,20 @@ body {
     display: flex;
     justify-content: center;
     padding: 5em 1em;
-
+    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-right: 2px solid #5a4007;
     border-bottom: 2px solid #5a4007;
     place-self: start;
+    transition: width 0.2s;
+    &.hidden {
+      width: 0;
+      padding: 0;
+      flex-grow: 1;
+    }
   }
   &__Posts {
+    flex-grow: 1;
     padding: 20px 16px;
     position: relative;
 

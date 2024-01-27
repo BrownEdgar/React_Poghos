@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { truncate } from '../helpers';
+import { Link } from 'react-router-dom'
 import './Posts.scss'
 
 Posts.propTypes = {
@@ -19,13 +20,13 @@ export default function Posts({ posts }) {
       {
         posts.map(elem => {
           return (
-            <article className="Posts__item" key={elem.id}>
+            <Link className="Posts__item" key={elem.id} to={`/posts/${elem.id}`}>
               <img src={elem.image} />
               <div className="info">
                 <h2>{elem.title}</h2>
                 {truncate(elem.body, 200)}
               </div>
-            </article>
+            </Link>
           )
         })
       }

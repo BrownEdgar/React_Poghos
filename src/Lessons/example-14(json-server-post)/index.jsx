@@ -6,6 +6,8 @@ import Posts from './Posts/Posts'
 import axios from 'axios';
 
 import './App.scss';
+import { Route, Routes, useMatch } from 'react-router-dom';
+import Post from './Post/POst';
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -13,21 +15,35 @@ export default function App() {
 
   useEffect(() => {
     if (!loaging) {
-      axios('http://localhost:3000/posts')
-        .then(res => setPosts(res.data))
+      axios('http://localhost:3000/posts/1')
+        .then(res => {
+          console.log(res)
+          setPosts(res.data.data)
+        })
         .catch(console.log)
     }
   }, [setLoaging, loaging])
 
+  const match = useMatch('/');
+
   return (
     <div className='App '>
-      <div className="App__Form">
-        <MainForm setLoaging={setLoaging} />
+      <div className={classNames("App__Form", {
+        hidden: !match
+      })}>
+        {
+          match ? (
+            <MainForm setLoaging={setLoaging} />
+          ) : null
+        }
       </div>
       <div className={classNames('App__Posts', {
         'App__Posts-loading': loaging
       })}>
-        <Posts posts={posts} />
+        <Routes>
+          <Route path='/' element={<Posts posts={posts} />} />
+          <Route path='/posts/:id' element={<Post />} />
+        </Routes>
       </div>
     </div>
   )

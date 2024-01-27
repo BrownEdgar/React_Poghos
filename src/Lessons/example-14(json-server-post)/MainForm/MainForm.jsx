@@ -34,7 +34,7 @@ export default function MainForm({ setLoaging }) {
     const data = {
       id: nanoid(5),
       ...values,
-      image: `./images/${values.image.name}`
+      image: `/images/${values.image.name}`
     }
     resetForm()
 
