@@ -11,6 +11,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   background-color: #f0f0f0;
+  background-color: #1d1d1d;
 }
 
 ul {
@@ -20,14 +21,4 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.loader {
-  width: 650px;
-  margin: 0 auto;
 }

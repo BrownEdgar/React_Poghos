@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  h1 {
+    padding: 1em;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: grey;
+    font-size: 2.5em;
+    text-shadow: 1px -1px 1px #fff;
+  }
+  pre {
+    text-align: left;
+    white-space: pre;
+    background-color: #333;
+    color: rgb(188, 183, 183);
+    padding: 2em;
+    width: 540px;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    box-shadow: darkgrey 0px 25px 20px -20px;
+  }
+  button {
+    margin: 20px;
+    padding: 0.6rem 1rem;
+    border: 0;
+    font-weight: 700;
+    cursor: pointer;
+    width: 150px;
+  }
+}
