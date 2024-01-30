@@ -1,7 +1,7 @@
 import './index.css'
 import ReactDOM from 'react-dom/client'
 
-import App from './Lessons/Homework/ReactPaginate/App'
+import App from './Edward/antDesign/App'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 

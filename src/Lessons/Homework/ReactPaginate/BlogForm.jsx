@@ -4,7 +4,7 @@ import { useState } from "react";
 import { object as YupObject, string } from "yup";
 import Pagination from "../../React-router/components/Pagination/Pagination";
 import "./BlogForm.scss";
-import moment from 'moment'
+import moment from "moment";
 
 const initialValues = {
   title: "",
@@ -21,31 +21,33 @@ const validationSchema = YupObject({
 });
 
 export default function BlogForm() {
-    const [page, setPage] = useState(1);
-    const [perPage] = useState(4);
+  const [page, setPage] = useState(1);
+  const perPage = 1;
 
-    const x = page * perPage
-  const changePage = (n) => setPage(() => n)
+  const x = page * perPage;
+  const changePage = (n) => setPage(() => n);
 
   const [posts, setPosts] = useState([]);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm, setFieldValue}) => {
+
     const post = {
       id: nanoid(),
-      time:moment().format("[This post is created on] dddd, h:mm:ss "),
+      time: moment().format("dddd, h:mm:ss "),
       ...values,
     };
     setPosts([...posts, post]);
 
     resetForm();
+    setFieldValue("poster",'')
   };
-  const handleDel = (index) => {
-    page>1?index= index+ (page*perPage)-perPage:null
-    console.log(index);
-    const delPost = posts.filter(post => posts.indexOf(post) !== index)
-    setPosts(delPost)
-  }
-  console.log('posts',posts);
+  const handleDel = (id) => {
+    // page>1?index= index+ (page*perPage)-perPage:null
+    console.log(id,'id');
+    const postsAfterDel = posts.filter((post) => post.id !== id);
+    setPosts(postsAfterDel);
+  };
+  // console.log("posts", posts);
 
   return (
     <div className="All">
@@ -56,41 +58,62 @@ export default function BlogForm() {
           validationSchema={validationSchema}
         >
           {(formik) => {
+            // console.log(formik);
             return (
-              <Form encType='multipart/form-data'>
+              <Form>
                 <label
-                  htmlFor="title"
+                  // htmlFor="title"
                   className={
                     formik.errors.title && formik.touched.title ? "invalid" : ""
                   }
                 >
                   Title
-                  <Field type="text" name="title" id="title" />
+                  <Field
+                    type="text"
+                    name="title"
+                    // id="title"
+                  />
                 </label>
                 <ErrorMessage name="title" component="p" className="error" />
                 <label
-                  htmlFor="body"
+                  // htmlFor="body"
                   className={
                     formik.errors.body && formik.touched.body ? "invalid" : ""
                   }
                 >
                   Body
-                  <Field as="textarea" name="body" id="body" />
+                  <Field
+                    as="textarea"
+                    name="body"
+                    // id="body"
+                  />
                 </label>
                 <ErrorMessage name="body" component="p" className="error" />
-                <label htmlFor="poster" className={formik.errors.poster && formik.touched.poster?'invalid':''}>Poster
-                <input type="file" accept='image/*' name='poster' id='poster' onChange={(e) => {
-                    let reader = new FileReader()
-                    reader.onload = () => {
-                        if(reader.readyState === 2){
-                            formik.setFieldValue("poster",reader.result)
+                <label
+                  // htmlFor="poster"
+                  className={
+                    formik.errors.poster && formik.touched.poster
+                      ? "invalid"
+                      : ""
+                  }
+                >
+                  Poster
+                  <input
+                    type="file"
+                    accept="image/*"
+                    name="poster"
+                    //  id='poster'
+                    onChange={(e) => {
+                      let reader = new FileReader();
+                      reader.onload = () => {
+                        if (reader.readyState === 2) {
+                          formik.setFieldValue("poster", reader.result);
                         }
-                    }
-                    reader.readAsDataURL(e.target.files[0])
-
-                }}/>
-                
-            </label>
+                      };
+                      reader.readAsDataURL(e.target.files[0]);
+                    }}
+                  />
+                </label>
                 <input type="submit" value="add post" />
               </Form>
             );
@@ -98,20 +121,25 @@ export default function BlogForm() {
         </Formik>
       </div>
       <div className="Posts">
-      {posts.slice(x-perPage,x).map((post,index) => {
-        return (
-          <div key={post.id} className="Posts__Post">
-            <img src={post.poster} width='200' />
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-            <span>{post.time}</span>
-            <span className="del" onClick={() => handleDel(index)}>X</span>
-          </div>
-        );
-      })}
+        {posts.slice(x - perPage, x).map((post) => {
+          return (
+            <div key={post.id} className="Posts__Post">
+              <img src={post.poster} width="200" />
+              <h3>{post.title}</h3>
+              <p>{post.body}</p>
+              <span>This post is created on {post.time}</span>
+              <span className="del" onClick={() => handleDel(post.id)}>
+                X
+              </span>
+            </div>
+          );
+        })}
       </div>
-      <Pagination total={posts.length} perPage={perPage} changePage={changePage} />
+      <Pagination
+        total={posts.length}
+        perPage={perPage}
+        changePage={changePage}
+      />
     </div>
-
   );
 }
