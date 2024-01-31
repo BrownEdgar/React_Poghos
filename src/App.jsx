@@ -1,86 +1,43 @@
-import { useState, useEffect } from 'react';
-
+// import axios from 'axios'
+import React,{useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
+import { addCounter } from './features/counter/counterSlice'
+import { getAsyncPosts,
+  //  savePosts 
+  } from './features/posts/postsSlice'
 
-function App() {
-
-  const [posts, setPosts] = useState({
-    original: [],
-    filtered: []
-  });
-  const [isLoading, setIsLoading] = useState(false)
-  const [currentFilter, setCurrentFilter] = useState("all")
+export default function App() {
+  const dispatch = useDispatch()
+  const handleClick =() => {
+    dispatch(addCounter())
+  }
+  const counter = useSelector((state) => state.counter)
+  const posts = useSelector((state) => state.posts)
 
   useEffect(() => {
-    console.log("get data")
-    const getData = () => {
-      setIsLoading(true)
-      fetch('https://dummyjson.com/posts')
-        .then(res => res.json())
-        .then(data => {
-          setPosts({ original: data.posts, filtered: data.posts })
-          setIsLoading(false)
-        })
-    }
-    getData()
+    dispatch(getAsyncPosts())
+    // axios.get('https://jsonplaceholder.typicode.com/posts')
+    // .then(res => dispatch(savePosts(res.data)))
   }, [])
-
-
-  const filteredData = () => {
-    if (currentFilter == "all") return posts.original
-    const result = posts?.original.filter(post => post.tags.includes(currentFilter));
-    return result
-  }
-
-
-
-
-  const getAllTags = () => {
-    const tags = posts?.original.flatMap(post => post.tags);
-    return [...new Set(tags)];
-  }
-
-  return (
+  
+  return ( 
     <div className='App'>
-      <h1>Our Posts</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam dolore sit ea velit labore neque quibusdam, quam omnis voluptas, blanditiis, ipsa temporibus veniam maxime laborum saepe nobis ipsam ad?</p>
-      <div className="buttons">
-        {getAllTags().map(category => {
-          return <button
-            key={category}
-            onClick={() => setCurrentFilter(category)}>
-            {category}
-            <span></span>
-          </button>
-        })}
-      </div>
-
-      <hr />
-      {
-        isLoading
-          ? <h2>loading...</h2>
-          : (
-            filteredData().map(post => {
-              return (
-                <div key={post.id} className='Post'>
-                  <h2>{post.title}</h2>
-                  <p>{post.body}</p>
-                  <div className="tags">
-                    <p>
-                      {post.tags.map(tag => {
-                        return <span key={tag} className='tag'>{tag}</span>
-                      })}
-                    </p>
-                  </div>
-                </div>
-              )
-            })
-          )
-      }
+      <h1>counter:{counter}</h1>
+      <button onClick={handleClick}>Add</button>
+      <pre>
+        {
+          // JSON.stringify(posts,null,1)
+          posts.data.map(post => {
+            return <div key={post.id}>
+              <h4>{post.userId}:{post.id}</h4>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+              <hr style={{margin:10}}/>
+            </div>
+          })
+        }
+      </pre>
     </div>
   )
 }
-
-export default App
-
-
