@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "jsx": "react-jsx",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "module": "ESNext",
+        "paths": {
+            "@f/*":[
+                "features/*"
+            ]
+        }
+    }
+} 

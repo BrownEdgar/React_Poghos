@@ -1,7 +1,8 @@
+import counterSlice from "@f/counter/counterSlice";
+import postsSlice from "@f/posts/postsSlice";
+import usersSlice from "@f/users/usersSlice";
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "../features/counter/counterSlice";
-import postsSlice from "../features/posts/postsSlice";
-import usersSlice from "../features/users/usersSlice";
+
 
 export default configureStore({
     reducer:{
