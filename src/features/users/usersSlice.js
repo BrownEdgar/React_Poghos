@@ -22,14 +22,11 @@ const usersSlice = createSlice({
 
     reducers:{
         deleteUsersById(state,action){
-            // console.log(action);
            state.data =  state.data.filter(elem  => elem.id !== action.payload)
            return state
         },
         addUser(state,action){
-            console.log(action.payload);
            state.data.push(action.payload)
-            console.log(state);
             return state
         }
     },
